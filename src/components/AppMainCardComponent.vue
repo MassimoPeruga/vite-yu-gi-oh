@@ -8,7 +8,7 @@ export default {
 <template>
     <div class="col">
         <div class="ms_card text-center h-100">
-            <img :src="image" :alt="name" class="d-block img-fluid">
+            <img :src="image" :alt="name" class="d-block w-100">
             <h5 class="p-2">{{ name }}</h5>
             <h6 v-if="type" class="p-1">{{ type }}</h6>
         </div>

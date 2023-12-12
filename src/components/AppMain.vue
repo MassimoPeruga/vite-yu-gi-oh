@@ -1,18 +1,29 @@
 <script>
 import MainNav from './AppMainNav.vue';
 import CardsContainer from './AppMainCards.vue';
+import LoaderComponent from './AppMainLoader.vue';
+import { store } from '../assets/js/_partials/_store';
 
 export default {
     name: 'Main',
     components: {
         MainNav,
         CardsContainer,
+        LoaderComponent,
+    },
+    data() {
+        return {
+            store,
+        };
     },
 };
 </script>
 
 <template>
-    <main class="row justify-content-center p-3 pb-5">
+    <div v-if="store.cards.length === 0">
+        <LoaderComponent />
+    </div>
+    <main class="row justify-content-center p-3 pb-5" v-else>
         <MainNav />
         <CardsContainer />
     </main>

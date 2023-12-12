@@ -1,11 +1,12 @@
 <script>
 export default {
     name: 'FoundComponent',
+    props: ['number'],
 };
 </script>
 
 <template>
-    <p class="p-3 m-0 fs-3">Found n cards</p>
+    <p class="p-3 m-0 fs-3">Found {{ number }} cards</p>
 </template>
 
 <style lang="scss" scoped>
