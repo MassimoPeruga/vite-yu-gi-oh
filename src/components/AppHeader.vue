@@ -12,7 +12,14 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-img {
-    width: 100px;
+@use '../assets/scss/partial/variables' as *;
+
+header {
+    background-color: $secondary-color;
+    color: $tertiary-color;
+
+    img {
+        width: 100px;
+    }
 }
 </style>
