@@ -1,13 +1,7 @@
 <script>
-import { store } from '../assets/js/_partials/_store';
 export default {
     name: 'CardComponent',
     props: ['name', 'image', 'type',],
-    data() {
-        return {
-            store,
-        };
-    },
 };
 </script>
 
