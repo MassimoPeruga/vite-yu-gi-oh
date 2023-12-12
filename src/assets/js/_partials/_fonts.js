@@ -1,0 +1,1 @@
+import "@fontsource/bagnard"; // Defaults to weight 400
