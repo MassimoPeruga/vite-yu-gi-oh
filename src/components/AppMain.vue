@@ -2,6 +2,7 @@
 import MainNav from './AppMainNav.vue';
 import CardsContainer from './AppMainCards.vue';
 import LoaderComponent from './AppMainLoader.vue';
+import axios from 'axios';
 import { store } from '../assets/js/_partials/_store';
 
 export default {
@@ -15,6 +16,11 @@ export default {
         return {
             store,
         };
+    },
+    created() {
+        axios.get(store.apiURL).then((response) => {
+            store.cards = response.data.data;
+        });
     },
 };
 </script>
