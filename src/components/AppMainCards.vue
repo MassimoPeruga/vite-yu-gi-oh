@@ -1,6 +1,7 @@
 <script>
 import Found from './AppMainFoundComponent.vue';
 import Card from './AppMainCardComponent.vue';
+import axios from 'axios';
 import { store } from '../assets/js/_partials/_store';
 export default {
     name: 'CardsContainer',
@@ -12,7 +13,12 @@ export default {
         return {
             store,
         }
-    }
+    },
+    created() {
+        axios.get(store.apiURL).then((response) => {
+            store.cards = response.data.data;
+        });
+    },
 };
 </script>
 
