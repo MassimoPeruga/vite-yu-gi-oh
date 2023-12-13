@@ -18,9 +18,12 @@ export default {
         };
     },
     created() {
-        axios.get(store.apiURL).then((response) => {
+        axios.get(store.apiCards).then((response) => {
             store.cards = response.data.data;
         });
+        axios.get(store.apiArchetypes).then((response) => {
+            store.archetypes = response.data;
+        })
     },
 };
 </script>

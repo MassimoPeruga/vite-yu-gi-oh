@@ -1,6 +1,13 @@
 <script>
+import { store } from '../assets/js/_partials/_store';
+
 export default {
     name: 'Nav',
+    data() {
+        return {
+            store,
+        };
+    },
 };
 </script>
 
@@ -8,8 +15,9 @@ export default {
     <nav class="col-10 row">
         <div class="col-2">
             <select class="form-select" aria-label="Default select example">
-                <option selected>Select</option>
-                <option value="1">One</option>
+                <option selected>Select archetype</option>
+                <option v-for="(archetype, index) in store.archetypes" :value="index">{{ archetype.archetype_name }}
+                </option>
             </select>
         </div>
     </nav>
