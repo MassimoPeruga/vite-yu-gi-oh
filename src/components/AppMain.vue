@@ -18,12 +18,29 @@ export default {
         };
     },
     created() {
-        axios.get(store.apiCards).then((response) => {
-            store.cards = response.data.data;
-        });
+        this.callAPI();
         axios.get(store.apiArchetypes).then((response) => {
             store.archetypes = response.data;
-        })
+        });
+    },
+    methods: {
+        callAPI() {
+            if (store.selectedArchetype === "") {
+                axios.get(store.apiCards).then((response) => {
+                    store.cards = response.data.data;
+                });
+            } else {
+                axios.get(store.apiCards,
+                    {
+                        params: {
+                            archetype: store.selectedArchetype,
+                        },
+                    }
+                ).then((response) => {
+                    store.cards = response.data.data;
+                });
+            };
+        }
     },
 };
 </script>
@@ -33,7 +50,7 @@ export default {
         <LoaderComponent />
     </div>
     <main class="row justify-content-center p-3 pb-5 m-0" v-else>
-        <MainNav />
+        <MainNav @call="callAPI" />
         <CardsContainer />
     </main>
 </template>
