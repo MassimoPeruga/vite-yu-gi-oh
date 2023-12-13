@@ -23,7 +23,7 @@ export default {
     <div v-if="store.cards.length === 0">
         <LoaderComponent />
     </div>
-    <main class="row justify-content-center p-3 pb-5" v-else>
+    <main class="row justify-content-center p-3 pb-5 m-0" v-else>
         <MainNav />
         <CardsContainer />
     </main>
